@@ -1,9 +1,14 @@
 import styles from './Profile.module.css';
 import AddNewSkill from '../modals/AddNewSkill';
-import { useState } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux/reducers';
+import { open } from '../../redux/actions/counter';
 function Profile() {
-    const [modal, setModal] = useState(false);
+    const dispatch = useDispatch();
+    const modal = useSelector((state: RootState) => {
+        return state.modal.show;
+    });
+
     return (
         <div className={styles['main-div']}>
             <div className={styles['profile-data']}>
@@ -34,7 +39,7 @@ function Profile() {
                     <div className={styles['label-add-role-btn-wrapper']}>
                         <label>Skills:</label>
                         <button
-                            onClick={() => setModal(!modal)}
+                            onClick={() => dispatch(open())}
                             className={styles['add-role-btn']}
                         >
                             +
