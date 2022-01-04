@@ -1,13 +1,12 @@
 import styles from './Profile.module.css';
-import AddNewSkill from '../modals/AddNewSkill';
+import AddNewSkill from '@components/modals/AddNewSkill';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducers';
-import { open } from '../../redux/actions/modal';
+import { RootState } from '@reduxStore/reducers';
+import { open } from '@reduxStore/actions/modal';
+
 function Profile() {
     const dispatch = useDispatch();
-    const modal = useSelector((state: RootState) => {
-        return state.modal.show;
-    });
+    const modal = useSelector((state: RootState) => state.modal.show);
 
     return (
         <div className={styles['main-div']}>

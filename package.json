@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.15",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/react-fontawesome": "^1.6.5",
     "babel-jest": "^27.4.2",
@@ -27,6 +27,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
+    "dates-generator": "^1.0.4",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
     "eslint-config-react-app": "^7.0.0",
@@ -76,10 +77,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "format": "prettier --write \"**/*.{tsx,ts,js,css}\"",
     "prepare": "husky install",
-    "lint": "eslint --ext .ts,.tsx ./src"
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": [
@@ -163,9 +162,9 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "lint-staged": {
-    "*.+(ts|tsx)": [
-      "npm run format",
-      "npm run lint"
-    ]
+    "*.{ts,tsx}": [
+      "eslint --cache --ext .ts,.tsx --fix --quiet"
+    ],
+    "*.{ts,tsx,js,jsx,md,yml,scss,css}": "prettier --write"
   }
 }

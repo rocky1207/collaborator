@@ -1,5 +1,5 @@
-import counterReducer from './counterReducer';
-import modalReducer from './modalReducer';
+import counterReducer from '@reduxStore/reducers/counterReducer';
+import modalReducer from '@reduxStore/reducers/modalReducer';
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({

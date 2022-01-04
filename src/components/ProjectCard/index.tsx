@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProjectCard.module.css';
-import { Props } from './types';
+import { Props } from '@components/ProjectCard/types';
 
 function ProjectCard({
     status,
@@ -12,14 +12,6 @@ function ProjectCard({
     endDate,
 }: Props) {
     const statusClass = styles[status];
-
-    // if (status === 'active') {
-    //     statusClass = styles.active;
-    // } else if (status === 'inactive') {
-    //     statusClass = styles.inactive;
-    // } else if (status === 'cancelled') {
-    //     statusClass = styles.cancelled;
-    // }
 
     return (
         <div className={styles.wrapper}>
