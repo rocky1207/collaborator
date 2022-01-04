@@ -2,7 +2,7 @@ import styles from './Profile.module.css';
 import AddNewSkill from '../modals/AddNewSkill';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
-import { open } from '../../redux/actions/counter';
+import { open } from '../../redux/actions/modal';
 function Profile() {
     const dispatch = useDispatch();
     const modal = useSelector((state: RootState) => {

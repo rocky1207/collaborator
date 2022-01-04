@@ -2,17 +2,22 @@ import { Action } from 'redux';
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
+    type: null,
     show: false,
 };
 
 const modalReducer = (state = initialState, action: Action) => {
     switch (action.type) {
-        case actionTypes.OPEN:
-            state.show = true;
-            return Object.assign({}, state);
-        case actionTypes.CLOSE:
-            state.show = false;
-            return Object.assign({}, state);
+        case actionTypes.OPEN_MODAL:
+            return {
+                ...state,
+                show: true,
+            };
+        case actionTypes.CLOSE_MODAL:
+            return {
+                ...state,
+                show: false,
+            };
         default:
             return state;
     }

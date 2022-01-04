@@ -11,14 +11,3 @@ export const sub = () => {
         type: actionTypes.SUB,
     };
 };
-
-export const open = () => {
-    return {
-        type: actionTypes.OPEN,
-    };
-};
-export const close = () => {
-    return {
-        type: actionTypes.CLOSE,
-    };
-};

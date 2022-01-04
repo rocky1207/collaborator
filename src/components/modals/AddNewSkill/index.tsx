@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { close } from '../../../redux/actions/counter';
+import { close } from '../../../redux/actions/modal';
 import styles from './AddNewSkill.module.css';
 
 const Modal = () => {
