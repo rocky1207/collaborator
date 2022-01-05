@@ -10,6 +10,7 @@ import TestSM from '@pages/TestSM';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
+import TimesheetDetails from '@components/TimesheetDetails';
 
 function App() {
     return (
@@ -24,6 +25,10 @@ function App() {
                 <Route path="/testss" element={<TestSS />} />
                 <Route path="/timesheet" element={<Timesheet />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route
+                    path="/timesheetDetails"
+                    element={<TimesheetDetails />}
+                />
             </Routes>
         </BrowserRouter>
     );
