@@ -9,6 +9,7 @@ import TestMB from '@pages/TestMB';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
+import TimesheetDetails from '@components/TimesheetDetails';
 import Test from '@components/PrivateRoute/Test';
 import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
@@ -86,6 +87,10 @@ function App() {
                     <Route path="/testbb" element={<TestBB />} />
                     <Route path="/testss" element={<TestSS />} />
                     <Route path="/timesheet" element={<Timesheet />} />
+                    <Route
+                        path="/timesheetDetails"
+                        element={<TimesheetDetails />}
+                    />
                     <Route path="/testmb" element={<TestMB />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
