@@ -6,7 +6,7 @@ const TimesheetDetails = () => {
     return (
         <section className={styles.timesheetDetailsSection}>
             <p className={styles.date}>04/01/2022</p>
-            <p className={styles.assessment}>7.5</p>
+            <p className={styles.workingTime}>7.5</p>
             <article className={styles.timesheetDetailsArticle}>
                 <div className={styles.articleDatas}>
                     <h3 className={styles.articleH3}>project name</h3>
