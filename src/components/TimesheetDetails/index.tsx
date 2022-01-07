@@ -2,6 +2,7 @@ import React from 'react';
 import { BsPencilSquare } from 'react-icons/bs';
 import './timesheetDetails.module.css';
 import styles from './timesheetDetails.module.css';
+
 const TimesheetDetails = () => {
     return (
         <section className={styles.timesheetDetailsSection}>
