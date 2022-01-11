@@ -7,15 +7,10 @@ import {
 } from '@components/Timesheet/types';
 import styles from './Timesheet.module.css';
 import { days } from '@components/Timesheet/data';
-import { useDispatch, useSelector } from 'react-redux';
-import { openTimesheetDetails } from '@reduxStore/actions/timesheetDetails';
-import TimesheetDetails from '@components/TimesheetDetails';
-import { RootState } from '@reduxStore/reducers';
+import { useNavigate } from 'react-router-dom';
+
 const Timesheet = () => {
-    const dispatch = useDispatch();
-    const timesheetDetails = useSelector(
-        (state: RootState) => state.timesheetDetails.show
-    );
+    const navigate = useNavigate();
 
     //Default selected date is present day
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -58,78 +53,72 @@ const Timesheet = () => {
     }, []);
 
     return (
-        <>
-            {!timesheetDetails ? (
-                <div className={styles.timesheet}>
-                    <table className={styles.table}>
-                        <thead>
-                            <tr>
-                                {days.map((day) => (
-                                    <td key={day}>
-                                        <div className={styles.days}>{day}</div>
+        <div className={styles.timesheet}>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        {days.map((day) => (
+                            <td key={day}>
+                                <div className={styles.days}>{day}</div>
+                            </td>
+                        ))}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {dates.length > 0 &&
+                        dates.map((week) => (
+                            <tr
+                                key={JSON.stringify(week[0])}
+                                className={styles.row}
+                            >
+                                {week.map((day: TimesheetDate) => (
+                                    <td
+                                        onClick={() =>
+                                            navigate(
+                                                '/timesheet/' +
+                                                    day.date +
+                                                    '/' +
+                                                    (Number(day.month) + 1) +
+                                                    '/' +
+                                                    calendar.year
+                                            )
+                                        }
+                                        className={
+                                            day.month.toString() ==
+                                            calendar.month.toString()
+                                                ? `${styles.cell} ${styles.current}`
+                                                : `${styles.cell} ${styles['not-current']}`
+                                        }
+                                        key={JSON.stringify(day)}
+                                    >
+                                        <div className={styles.cell_wrapper}>
+                                            <div className={styles.date}>
+                                                {day.date}/
+                                                {Number(day.month) + 1}
+                                            </div>
+
+                                            <div
+                                                className={
+                                                    Number(timeTracked) <
+                                                    Number(7.5)
+                                                        ? `${styles.calendar_input}  ${styles.red}`
+                                                        : `${styles.calendar_input}  ${styles.green}`
+                                                }
+                                            >
+                                                {day.month.toString() ==
+                                                calendar.month.toString()
+                                                    ? timeTracked
+                                                    : null}
+                                            </div>
+                                        </div>
                                     </td>
                                 ))}
                             </tr>
-                        </thead>
-
-                        <tbody>
-                            {dates.length > 0 &&
-                                dates.map((week) => (
-                                    <tr
-                                        onClick={() =>
-                                            dispatch(openTimesheetDetails())
-                                        }
-                                        key={JSON.stringify(week[0])}
-                                        className={styles.row}
-                                    >
-                                        {week.map((day: TimesheetDate) => (
-                                            <td
-                                                className={
-                                                    day.month.toString() ==
-                                                    calendar.month.toString()
-                                                        ? `${styles.cell} ${styles.current}`
-                                                        : `${styles.cell} ${styles['not-current']}`
-                                                }
-                                                key={JSON.stringify(day)}
-                                            >
-                                                <div
-                                                    className={
-                                                        styles.cell_wrapper
-                                                    }
-                                                >
-                                                    <div
-                                                        className={styles.date}
-                                                    >
-                                                        {day.date}/
-                                                        {Number(day.month) + 1}
-                                                    </div>
-
-                                                    <div
-                                                        className={
-                                                            Number(
-                                                                timeTracked
-                                                            ) < Number(7.5)
-                                                                ? `${styles.calendar_input}  ${styles.red}`
-                                                                : `${styles.calendar_input}  ${styles.green}`
-                                                        }
-                                                    >
-                                                        {day.month.toString() ==
-                                                        calendar.month.toString()
-                                                            ? timeTracked
-                                                            : null}
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        ))}
-                                    </tr>
-                                ))}
-                        </tbody>
-                    </table>
-                </div>
-            ) : (
-                <TimesheetDetails />
-            )}
-        </>
+                        ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 

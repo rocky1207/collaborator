@@ -88,7 +88,7 @@ function App() {
                     <Route path="/testss" element={<TestSS />} />
                     <Route path="/timesheet" element={<Timesheet />} />
                     <Route
-                        path="/timesheetDetails"
+                        path="/timesheet/:day/:month/:year"
                         element={<TimesheetDetails />}
                     />
                     <Route path="/testmb" element={<TestMB />} />

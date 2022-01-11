@@ -1,5 +1,6 @@
 import React from 'react';
-import { BsPencilSquare } from 'react-icons/bs';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import './timesheetDetails.module.css';
 import styles from './timesheetDetails.module.css';
 
@@ -25,7 +26,7 @@ const TimesheetDetails = () => {
                     <textarea className={styles.articleTextarea}></textarea>
                 </div>
                 <div>
-                    <BsPencilSquare className={styles.BsPencilSquare} />
+                    <FontAwesomeIcon icon={faEdit} className={styles.faEdit} />
                 </div>
             </article>
         </section>
