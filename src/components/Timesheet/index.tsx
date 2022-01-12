@@ -8,6 +8,7 @@ import {
 import styles from './Timesheet.module.css';
 import { days } from '@components/Timesheet/data';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Timesheet = () => {
     const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Timesheet = () => {
     });
 
     const [timeTracked, setTimeTracked] = useState<number>();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const timesheetBody = {
@@ -59,7 +61,9 @@ const Timesheet = () => {
                     <tr>
                         {days.map((day) => (
                             <td key={day}>
-                                <div className={styles.days}>{day}</div>
+                                <div className={styles.days}>
+                                    {t(`days.${day}`)}
+                                </div>
                             </td>
                         ))}
                     </tr>
