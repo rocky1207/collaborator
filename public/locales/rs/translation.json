@@ -25,7 +25,8 @@
         "startDate":"Datum početka:",
         "endDate":"Datum završetka:",
         "fullname":"Puno ime",
-        "nothingMsg":"Ovde nema ničega!"
+        "nothingMsg":"Ovde nema ničega!",
+        "timeSpent": "Utrošeno vreme"
     },
     "days":{
         "mon":"Ponedeljak",

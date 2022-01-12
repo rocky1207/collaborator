@@ -25,7 +25,8 @@
         "startDate":"Startdatum:",
         "endDate":"Endtermin:",
         "fullname":"Vollständiger Name",
-        "nothingMsg": "Hier ist nichts!"     
+        "nothingMsg": "Hier ist nichts!",
+        "timeSpent": "Zeitaufwand"     
     },
     "days":{
         "mon":"Montag",
